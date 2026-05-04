@@ -38,7 +38,7 @@ export default function Home() {
       {/* === HERO SECTION === */}
       <section className="hero-section">
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center", minHeight: "80vh" }}>
+          <div className="hero-grid">
             {/* LADO IZQUIERDO - TEXTO */}
             <div className="animate-fade-in">
               <h1 style={{ 
@@ -74,7 +74,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
-                  style={{ padding: "16px 32px", fontSize: "1rem" }}
+
                 >
                   💬 Hablar por WhatsApp
                 </a>
@@ -85,13 +85,13 @@ export default function Home() {
             </div>
             
 {/* LADO DERECHO - LOGO */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "400px" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
               <Image 
                 src="/images/logos/logoimg.png"
                 alt="Pedagia"
                 width={800}
                 height={600}
-                style={{ width: "600px", height: "auto" }}
+                style={{ width: "100%", maxWidth: "600px", height: "auto" }}
               />
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function Home() {
             La realidad del docente colombiano
           </h2>
           
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+          <div className="problema-solucion-grid">
             <div className="glass-panel" style={{ borderLeft: "3px solid #ef4444" }}>
               <h3 style={{ fontSize: "1.25rem", fontWeight: 600, color: "#ef4444", marginBottom: "1.5rem" }}>
                 ❌ Problema actual

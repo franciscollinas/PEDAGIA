@@ -42,6 +42,7 @@ export default function Header() {
           rel="noopener noreferrer"
           className="whatsapp-btn"
           aria-label="Contactar por WhatsApp"
+          style={{ transform: "scale(0.7)", transformOrigin: "right center" }}
         >
           <span>💬</span>
           <span>WhatsApp</span>

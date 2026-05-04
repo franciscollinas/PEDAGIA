@@ -673,18 +673,135 @@ h4 { font-size: 1.5rem; line-height: 1.4; }
   /* Estilos para logos */
 }
 
+/* === GRID HELPERS === */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.problema-solucion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  /* Hero padding para que no quede detrás del header */
+  .hero-section {
+    padding-top: 80px !important;
+  }
+  
+  /* Hero H1 responsive */
+  .hero-grid h1 {
+    font-size: 2.2rem !important;
+    line-height: 1.1 !important;
+  }
+  .hero-grid h1 span:first-child {
+    font-size: 2.8rem !important;
+    line-height: 1.1 !important;
+  }
+  .hero-grid h1 span:last-child {
+    font-size: 1.2rem !important;
+  }
+  .hero-grid .hero-subtitle {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    max-width: 90% !important;
+  }
+  
+  /* Imagen del hero - reducir espacio con botones y centrar */
+  .hero-grid > div:last-child {
+    max-width: 60% !important;
+    margin: 0 auto !important;
+    padding-top: 0 !important;
+  }
+  .hero-grid > div:last-child img {
+    max-height: 150px !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Botones apilados verticalmente */
+  .hero-grid > div:first-child > div:has(.btn-primary) {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .hero-grid > div:first-child > div:has(.btn-primary) .btn-primary,
+  .hero-grid > div:first-child > div:has(.btn-primary) .btn-outline {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+  }
+  .problema-solucion-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
+  /* Header responsive - reducir altura máxima a 60px */
+  .navbar {
+    max-height: 60px !important;
+    padding: 0.5rem 0 !important;
+  }
+  .navbar .container {
+    padding: 0.5rem 1rem !important;
+  }
+  .navbar .container .whatsapp-btn {
+    transform: scale(0.8);
+  }
+  .navbar .hidden {
+    display: none !important;
+  }
+  /* Logo del header más pequeño - 80% */
+  .navbar img {
+    width: 100px !important;
+    height: auto !important;
+  }
+  /* Headings */
   h1 { font-size: 2.5rem; }
   h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.125rem; }
   
-  .hero-title { font-size: 2.75rem; }
+  /* Section titles */
+  .section-title { font-size: 2rem; }
+  .section-subtitle { font-size: 1rem; }
+  
+  /* Hero */
+  .hero-title { font-size: 2rem; }
   .hero-title .highlight::after { display: none; }
   
+  /* Botones */
+  .btn-primary {
+    padding: 14px 24px;
+    font-size: 1rem;
+  }
+  .btn-outline {
+    padding: 14px 24px;
+    font-size: 1rem;
+  }
+  
+  /* Grids */
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .timeline { flex-direction: column; gap: 2rem; }
   .timeline::before { display: none; }
   
-  .container { padding: 0 1.5rem; }
-  .section { padding: 4rem 0; }
+  /* Container y Section */
+  .container { padding: 0 1rem; }
+  .section { padding: 3rem 0; }
+  
+  /* Cards */
+  .card { padding: 1.5rem; }
 }
