@@ -19,28 +19,15 @@ export default function ServiciosPage() {
           precio: "$80.000 - $150.000 COP",
           plazo: "48-72 horas",
           descripcion: "Malla curricular completa alineada con MEN para toda la asignatura en un año escolar.",
-          incluye: [
-            "Malla curricular por 4 períodos académicos",
-            "Competencias por grado",
-            "Derechos Básicos de Aprendizaje (DBA) identificados",
-            "Ejes temáticos por período",
-            "Intensidad horaria sugerida",
-            "Temas transversales integrados",
-          ],
-          para: "Coordinadores de área, docentes nuevos, quien necesite coherencia institucional",
+          incluye: ["Malla curricular por 4 períodos", "Competencias por grado", "DBA identificados", "Ejes temáticos", "Intensidad horaria"],
+          para: "Coordinadores de área, docentes nuevos",
         },
         {
           titulo: "Contenidos Programáticos",
           precio: "$60.000 - $100.000 COP",
           plazo: "24-48 horas",
           descripcion: "Desarrollo detallado de temas, competencias y recursos pedagógicos.",
-          incluye: [
-            "Estructura por 4 períodos",
-            "Subtemas específicos por período",
-            "Metodologías sugeridas",
-            "Recursos didácticos (libros, plataformas, videos)",
-            "Bibliografía completa",
-          ],
+          incluye: ["Estructura por 4 períodos", "Subtemas por período", "Metodologías", "Recursos didácticos", "Bibliografía"],
           para: "Docentes que necesitan ampliar el Plan de Área",
         },
       ],
@@ -53,15 +40,7 @@ export default function ServiciosPage() {
           precio: "$30.000 - $55.000 COP",
           plazo: "12-24 horas",
           descripcion: "Guía completa para una o varias sesiones de clase con estructura clara.",
-          incluye: [
-            "Objetivo de aprendizaje explícito",
-            "Momento de inicio (motivación)",
-            "Desarrollo (actividades con estrategia pedagógica específica)",
-            "Cierre (síntesis y reflexión)",
-            "Evaluación formativa integrada",
-            "Recursos sugeridos",
-            "Adecuaciones para inclusión",
-          ],
+          incluye: ["Objetivo de aprendizaje", "Momento de inicio", "Desarrollo", "Cierre", "Evaluación formativa", "Recursos"],
           para: "Docentes en clase diaria",
         },
         {
@@ -69,12 +48,7 @@ export default function ServiciosPage() {
           precio: "$45.000 - $80.000 COP",
           plazo: "48 horas",
           descripcion: "Secuencia de 3-5 sesiones sobre un tema con escalada de complejidad.",
-          incluye: [
-            "Conexión entre clases",
-            "Estrategias variadas (AEP, aula invertida, cooperativa)",
-            "Seguimiento de aprendizaje progresivo",
-            "Evaluación por etapas",
-          ],
+          incluye: ["Conexión entre clases", "Estrategias variadas", "Seguimiento progresivo", "Evaluación por etapas"],
           para: "Temas extensos que requieren profundidad",
         },
       ],
@@ -87,13 +61,7 @@ export default function ServiciosPage() {
           precio: "$25.000 - $45.000 COP",
           plazo: "12-24 horas",
           descripcion: "Logros medibles con indicadores de desempeño según normativa MEN.",
-          incluye: [
-            "4-6 logros por período",
-            "Indicadores en 3-4 niveles (Básico, Alto, Superior, Avanzado)",
-            "Alineados con DBA",
-            "Lectura según Decreto 1290",
-            "Uno transversal (Convivencia/Actitud)",
-          ],
+          incluye: ["4-6 logros por período", "Indicadores 3-4 niveles", "Alineados con DBA", "Decreto 1290"],
           para: "Todo docente que deba reportar desempeños",
         },
         {
@@ -101,12 +69,7 @@ export default function ServiciosPage() {
           precio: "$20.000 - $35.000 COP",
           plazo: "12 horas",
           descripcion: "Matriz de valoración para un logro o competencia específica.",
-          incluye: [
-            "Criterios claros y medibles",
-            "Escalas adaptadas a SIEE institucional",
-            "Ejemplos de desempeño en cada nivel",
-            "Retroalimentación automática por nivel",
-          ],
+          incluye: ["Criterios medibles", "Escalas adaptadas", "Ejemplos de desempeño", "Retroalimentación"],
           para: "Evaluación objetiva y transparente",
         },
         {
@@ -114,13 +77,7 @@ export default function ServiciosPage() {
           precio: "$30.000 - $50.000 COP",
           plazo: "24 horas",
           descripcion: "Prueba, taller o práctica evaluativa con clave de respuestas.",
-          incluye: [
-            "Prueba escrita / oral / práctica",
-            "Alineada con los aprendizajes de la unidad",
-            "Variedad de tipos de preguntas",
-            "Clave de respuestas",
-            "Pauta de calificación",
-          ],
+          incluye: ["Prueba escrita/oral/práctica", "Alineada con unidad", "Variedad de preguntas", "Clave de respuestas"],
           para: "Evaluaciones periódicas de aprendizaje",
         },
       ],
@@ -129,17 +86,11 @@ export default function ServiciosPage() {
       categoria: "REPORTES Y PLANES DE MEJORA",
       items: [
         {
-          titulo: "Informe de Período (por estudiante)",
+          titulo: "Informe de Período",
           precio: "$5.000 - $8.000 COP x estudiante",
           plazo: "12 horas",
           descripcion: "Informe personalizado con observaciones específicas.",
-          incluye: [
-            "Desempeño en cada logro",
-            "Fortalezas específicas",
-            "Aspectos a mejorar",
-            "Recomendaciones pedagógicas personalizadas",
-            "Avance vs expectativas",
-          ],
+          incluye: ["Desempeño por logro", "Fortalezas", "Aspectos a mejorar", "Recomendaciones"],
           para: "Reportes a familias",
         },
         {
@@ -147,13 +98,7 @@ export default function ServiciosPage() {
           precio: "$15.000 - $25.000 COP",
           plazo: "24 horas",
           descripcion: "Plan individualizado para recuperación o profundización.",
-          incluye: [
-            "Diagnóstico: ¿por qué no alcanzó?",
-            "Estrategias específicas",
-            "Actividades",
-            "Plazo y criterios de éxito",
-            "Seguimiento sugerido",
-          ],
+          incluye: ["Diagnóstico", "Estrategias específicas", "Actividades", "Plazo y criterios"],
           para: "Estudiantes que necesitan apoyo",
         },
       ],
@@ -166,16 +111,7 @@ export default function ServiciosPage() {
           precio: "$120.000 - $200.000 COP",
           plazo: "3-5 días",
           descripcion: "Proyecto integrador que conecta múltiples áreas y saberes.",
-          incluye: [
-            "Problema o pregunta central",
-            "Fundamentación pedagógica",
-            "Objetivos y logros a alcanzar",
-            "Etapas del proyecto (3-5 fases)",
-            "Cronograma",
-            "Recursos necesarios",
-            "Evaluación integrada",
-            "Adecuaciones inclusivas",
-          ],
+          incluye: ["Problema central", "Fundamentación", "Objetivos", "Etapas", "Cronograma", "Evaluación"],
           para: "Proyectos institucionales, finales de período",
         },
       ],
@@ -183,43 +119,48 @@ export default function ServiciosPage() {
   ];
 
   return (
-    <div className="py-12">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-dark mb-4">Servicios Educativos IA</h1>
-          <p className="text-xl text-gray-600">Catálogo completo de servicios pedagógicos</p>
+    <div className="section" style={{ paddingTop: "8rem" }}>
+      <div className="container">
+        <div style={{ textAlign: "center", marginBottom: "3rem", marginTop: "4rem" }}>
+          <h1 className="section-title">Servicios Educativos IA</h1>
+          <p className="section-subtitle" style={{ margin: "0 auto" }}>Catálogo completo de servicios pedagógicos</p>
         </div>
 
         {servicios.map((categoria, i) => (
-          <div key={i} className="mb-12">
-            <h2 className="text-2xl font-bold text-primary mb-6">{categoria.categoria}</h2>
-            <div className="grid md:grid-cols-2 gap-8">
+          <div key={i} style={{ marginBottom: "4rem" }}>
+            <h2 style={{ fontSize: "1.75rem", marginBottom: "2rem", color: "var(--gold)", borderBottom: "1px solid var(--surface-border)", paddingBottom: "1rem" }}>
+              {categoria.categoria}
+            </h2>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "2rem" }}>
               {categoria.items.map((servicio, j) => (
-                <div key={j} className="service-card">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-semibold">{servicio.titulo}</h3>
+                <div key={j} className="card">
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem" }}>
+                    <h3 style={{ fontSize: "1.25rem", fontWeight: 600 }}>{servicio.titulo}</h3>
                   </div>
-                  <p className="text-2xl font-bold text-primary mb-1">{servicio.precio}</p>
-                  <p className="text-sm text-gray-500 mb-4">Entrega: {servicio.plazo}</p>
-                  <p className="text-gray-600 mb-4">{servicio.descripcion}</p>
-                  <div className="mb-4">
-                    <p className="font-semibold text-sm mb-2">Incluye:</p>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      {servicio.incluye.map((item, k) => (
-                        <li key={k}>✓ {item}</li>
+                  <p style={{ fontSize: "2rem", fontWeight: 700, color: "var(--gold)", marginBottom: "0.5rem" }}>{servicio.precio}</p>
+                  <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", marginBottom: "1rem" }}>Entrega: {servicio.plazo}</p>
+                  <p style={{ color: "var(--text-secondary)", marginBottom: "1.5rem", lineHeight: 1.6 }}>{servicio.descripcion}</p>
+                  <div style={{ marginBottom: "1.5rem" }}>
+                    <p style={{ fontWeight: 600, fontSize: "0.875rem", marginBottom: "0.75rem" }}>Incluye:</p>
+                    <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                      {(servicio.incluye)?.map((item: string, k: number) => (
+                        <li key={k} style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
+                          ✓ {item}
+                        </li>
                       ))}
                     </ul>
                   </div>
-                  <div className="pt-4 border-t">
-                    <p className="text-sm text-gray-500">
-                      <strong>Para quién:</strong> {servicio.para}
+                  <div style={{ borderTop: "1px solid var(--surface-border)", paddingTop: "1rem", marginBottom: "1rem" }}>
+                    <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
+                      <strong style={{ color: "var(--text-primary)" }}>Para quién:</strong> {servicio.para}
                     </p>
                   </div>
                   <a
-                    href="https://wa.me/573000000000?text=Hola! Me interesa el servicio de {servicio.titulo}"
+                    href={`https://wa.me/573000000000?text=Hola! Me interesa el servicio de ${servicio.titulo}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="whatsapp-btn w-full justify-center mt-4" aria-label="Solicitar servicio"
+                    className="btn-primary"
+                    style={{ width: "100%", justifyContent: "center", display: "flex" }}
                   >
                     💬 Solicitar
                   </a>
@@ -229,26 +170,26 @@ export default function ServiciosPage() {
           </div>
         ))}
 
-        {/* Notas adicionales */}
-        <div className="bg-yellow-50 p-6 rounded-xl mt-8">
-          <h3 className="font-semibold text-lg mb-4">Descuentos y Opciones</h3>
-          <ul className="space-y-2 text-gray-700">
-            <li><strong>Precio urgente:</strong> +30% si plazo &lt; 12 horas</li>
-            <li><strong>Paquete:</strong> -20% si compras 5+ servicios similares</li>
-            <li><strong>Plan de Área + Guías:</strong> -15% en total</li>
-            <li><strong>Suscripción mensual:</strong> $150k → acceso ilimitado a Guías + Logros</li>
+        {/* Notas */}
+        <div className="glass-panel" style={{ marginTop: "2rem", padding: "2rem" }}>
+          <h3 style={{ fontSize: "1.25rem", marginBottom: "1rem", color: "var(--gold)" }}>Descuentos y Opciones</h3>
+          <ul style={{ listStyle: "none", padding: 0, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem" }}>
+            <li><span style={{ color: "var(--gold)" }}>→</span> <strong>Urgente:</strong> +30% si plazo &lt; 12h</li>
+            <li><span style={{ color: "var(--gold)" }}>→</span> <strong>Paquete:</strong> -20% si compras 5+</li>
+            <li><span style={{ color: "var(--gold)" }}>→</span> <strong>Combo:</strong> Plan Área + Guías = -15%</li>
+            <li><span style={{ color: "var(--gold)" }}>→</span> <strong>Suscripción:</strong> $150k ilimitado</li>
           </ul>
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
-          <h3 className="text-2xl font-bold mb-4">¿Cuál es tu servicio ideal?</h3>
-          <p className="text-gray-600 mb-6">Escríbenos por WhatsApp y te asesoramos</p>
+        <div style={{ textAlign: "center", marginTop: "3rem" }}>
+          <h3 style={{ fontSize: "1.75rem", marginBottom: "1rem" }}>¿Cuál es tu servicio ideal?</h3>
+          <p style={{ color: "var(--text-secondary)", marginBottom: "1.5rem" }}>Escríbenos por WhatsApp y te asesoramos</p>
           <a
             href="https://wa.me/573000000000?text=Hola! No estoy seguro qué servicio necesito, me puede orientar?"
             target="_blank"
             rel="noopener noreferrer"
-            className="whatsapp-btn text-lg" aria-label="Contactar por WhatsApp"
+            className="btn-primary"
           >
             💬 Hablar por WhatsApp
           </a>

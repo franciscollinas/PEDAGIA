@@ -3,157 +3,109 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Cómo Funciona",
   description: "En 5 pasos simples obtén tus documentos pedagógicos: WhatsApp → Mini-contrato → Pago → IA trabaja → Recibes en Drive.",
-  openGraph: {
-    title: "Cómo Funciona - Pedagia",
-    description: "Proceso simple en 5 pasos para obtener tus documentos pedagógicos.",
-  },
 };
 
 export default function ComoFuncionaPage() {
   const pasos = [
-    {
-      numero: 1,
-      titulo: "Escribe al WhatsApp",
-      tiempo: "2 minutos",
-      descripcion: "Contactas por WhatsApp y nos cuentas qué necesitas",
-      dialogo: {
-        usuario: "Hola, necesito un Plan de Área de Matemáticas para grado 8",
-        ia: "¡Perfecto! Para preparar el mejor documento, cuéntame: ¿Tu institución es oficial o privada?",
-      },
+    { 
+      numero: 1, 
+      titulo: "Escribe al WhatsApp", 
+      desc: "Contactas y cuéntanos tu necesidad",
+      dialogo: { usuario: "Necesito un Plan de Área de Matemáticas para grado 8", ia: "¿Tu institución es oficial o privada?" }
     },
-    {
-      numero: 2,
-      titulo: "Mini-contrato automático",
-      tiempo: "1 minuto",
-      descripcion: "La IA genera una propuesta con precio, plazo y alcance",
-      contrato: {
-        orden: "#2024001",
-        servicio: "Plan de Área Matemáticas 8°",
-        precio: "$120.000 COP",
-        plazo: "48 horas desde confirmación de pago",
-        garantia: "Alineado con DBA y normativa MEN",
-      },
+    { 
+      numero: 2, 
+      titulo: "Mini-contrato", 
+      desc: "IA genera propuesta con precio y plazo",
+      contrato: { servicio: "Plan Área 8°", precio: "$120.000 COP", plazo: "48 horas", garantia: "Alineado con DBA y MEN" }
     },
-    {
-      numero: 3,
-      titulo: "Confirma y paga",
-      tiempo: "3 minutos",
-      descripcion: "Recibes link de pago seguro y confirmas",
-      metodos: ["PSE", "Nequi", "Tarjeta de crédito/débito", "Transferencia"],
+    { 
+      numero: 3, 
+      titulo: "Confirma y paga", 
+      desc: "Link de pago seguro (Wompi/PSE/Nequi)",
+      metodos: ["PSE", "Nequi", "Tarjeta"]
     },
-    {
-      numero: 4,
-      titulo: "Equipo de IA trabaja",
-      tiempo: "24-48 horas",
-      descripcion: "7 agentes IA procesan tu documento en paralelo",
-      agentes: [
-        "Agente Curricular: Contenidos + DBA",
-        "Agente Evaluativo: Logros + indicadores",
-        "Agente Didáctico: Estrategias + actividades",
-        "Agente Normativo: Valida MEN compliance",
-        "Agente QA: Revisa coherencia",
-        "Agente Formato: Word/PDF listo para clase",
-      ],
+    { 
+      numero: 4, 
+      titulo: "IA trabaja", 
+      desc: "7 agentes IA procesan en paralelo",
+      agentes: ["Curricular", "Evaluativo", "Didáctico", "Normativo", "QA", "Formato"]
     },
-    {
-      numero: 5,
-      titulo: "Recibes en tu Drive",
-      tiempo: "Instantáneo",
-      descripcion: "Notificación por WhatsApp con enlace directo",
-      resultado: "Documento listo para usar el lunes en clase",
+    { 
+      numero: 5, 
+      titulo: "Recibes en Drive", 
+      desc: "Notificación + enlace directo",
+      resultado: "Documento listo para usar"
     },
   ];
 
   return (
-    <div className="py-12">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-dark mb-4">¿Cómo Funciona?</h1>
-          <p className="text-xl text-gray-600">En 5 pasos simples obtén tus documentos pedagógicos</p>
+    <div className="section" style={{ paddingTop: "8rem" }}>
+      <div className="container" style={{ maxWidth: "900px" }}>
+        <div style={{ textAlign: "center", marginBottom: "3rem", marginTop: "4rem" }}>
+          <h1 className="section-title">¿Cómo Funciona?</h1>
+          <p className="section-subtitle" style={{ margin: "0 auto" }}>En 5 pasos simples obtén tus documentos pedagógicos</p>
         </div>
 
-        <div className="space-y-8">
+        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
           {pasos.map((paso) => (
-            <div key={paso.numero} className="bg-white rounded-xl shadow-sm overflow-hidden">
-              <div className="bg-primary text-white p-4 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-bold">
-                  {paso.numero}
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold">{paso.titulo}</h3>
-                  <p className="text-sm opacity-90">⏱️ {paso.tiempo}</p>
-                </div>
+            <div key={paso.numero} className="card" style={{ display: "flex", gap: "2rem", alignItems: "flex-start" }}>
+              <div style={{ 
+                width: "60px", height: "60px", 
+                borderRadius: "50%", 
+                background: "linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: "1.5rem", fontWeight: 700, color: "var(--green-deep)",
+                flexShrink: 0
+              }}>
+                {paso.numero}
               </div>
-
-              <div className="p-6">
-                <p className="text-gray-600 mb-4">{paso.descripcion}</p>
-
+              <div style={{ flex: 1 }}>
+                <h3 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>{paso.titulo}</h3>
+                <p style={{ color: "var(--text-secondary)", marginBottom: "1rem" }}>{paso.desc}</p>
+                
                 {paso.dialogo && (
-                  <div className="bg-gray-100 rounded-lg p-4 mb-4">
-                    <div className="flex gap-2 mb-2">
-                      <span className="text-green-600 font-bold">👤</span>
-                      <p className="text-sm text-gray-700">{paso.dialogo.usuario}</p>
-                    </div>
-                    <div className="flex gap-2">
-                      <span className="text-blue-600 font-bold">🤖</span>
-                      <p className="text-sm text-gray-700">{paso.dialogo.ia}</p>
-                    </div>
+                  <div style={{ background: "rgba(0,0,0,0.2)", borderRadius: "12px", padding: "1rem" }}>
+                    <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)" }}>👤 {paso.dialogo.usuario}</p>
+                    <p style={{ fontSize: "0.9rem", color: "var(--gold)", marginTop: "0.5rem" }}>🤖 {paso.dialogo.ia}</p>
                   </div>
                 )}
-
+                
                 {paso.contrato && (
-                  <div className="border-2 border-primary/30 rounded-lg p-4 mb-4">
-                    <h4 className="font-bold text-primary mb-2">📋 ORDEN DE SERVICIO {paso.contrato.orden}</h4>
-                    <ul className="text-sm space-y-1">
-                      <li><strong>Servicio:</strong> {paso.contrato.servicio}</li>
-                      <li><strong>Precio:</strong> {paso.contrato.precio}</li>
-                      <li><strong>Plazo:</strong> {paso.contrato.plazo}</li>
-                      <li><strong>Garantía:</strong> {paso.contrato.garantia}</li>
-                    </ul>
-                    <p className="text-center text-sm text-gray-500 mt-2">¿Aceptas? [SÍ] [NO / AJUSTAR]</p>
+                  <div style={{ border: "1px solid var(--gold)", borderRadius: "12px", padding: "1rem" }}>
+                    <p style={{ fontWeight: 600, marginBottom: "0.5rem", color: "var(--gold)" }}>📋 ORDEN DE SERVICIO</p>
+                    <p style={{ fontSize: "0.9rem" }}>{paso.contrato.servicio} | {paso.contrato.precio} | {paso.contrato.plazo}</p>
+                    <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginTop: "0.5rem" }}>✓ {paso.contrato.garantia}</p>
                   </div>
                 )}
-
+                
                 {paso.metodos && (
-                  <div className="flex flex-wrap gap-2">
+                  <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
                     {paso.metodos.map((m, i) => (
-                      <span key={i} className="px-3 py-1 bg-gray-100 rounded-full text-sm">
-                        {m}
-                      </span>
+                      <span key={i} style={{ background: "rgba(255,255,255,0.05)", padding: "0.5rem 1rem", borderRadius: "8px", fontSize: "0.875rem" }}>{m}</span>
                     ))}
                   </div>
                 )}
-
+                
                 {paso.agentes && (
-                  <div className="grid md:grid-cols-2 gap-2">
-                    {paso.agentes.map((agente, i) => (
-                      <div key={i} className="flex items-center gap-2 text-sm">
-                        <span className="text-green-500">→</span>
-                        <span>{agente}</span>
-                      </div>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "0.5rem" }}>
+                    {paso.agentes.map((a, i) => (
+                      <span key={i} style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>→ {a}</span>
                     ))}
                   </div>
                 )}
-
+                
                 {paso.resultado && (
-                  <div className="bg-green-50 p-4 rounded-lg text-center">
-                    <p className="text-green-700 font-semibold">{paso.resultado}</p>
-                  </div>
+                  <p style={{ color: "var(--gold)", fontWeight: 500 }}>✓ {paso.resultado}</p>
                 )}
               </div>
             </div>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <p className="text-lg text-gray-600 mb-6">¿Listo para probar? Escríbenos y te respondemos en minutos</p>
-          <a
-            href="https://wa.me/573000000000?text=Hola! Quiero conocer más sobre los servicios"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="whatsapp-btn text-lg" aria-label="Empezar ahora por WhatsApp"
-          >
+        <div style={{ textAlign: "center", marginTop: "3rem" }}>
+          <p style={{ color: "var(--text-secondary)", marginBottom: "1.5rem" }}>¿Listo para probar? Escríbenos y te respondemos en minutos</p>
+          <a href="https://wa.me/573000000000?text=Hola! Quiero conocer más sobre los servicios" target="_blank" rel="noopener noreferrer" className="btn-primary">
             💬 Empezar ahora
           </a>
         </div>

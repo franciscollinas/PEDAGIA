@@ -1,44 +1,56 @@
 import Link from "next/link";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2026;
 
   return (
-    <footer className="bg-dark text-white py-12">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="footer">
+      <div className="container">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "3rem", marginBottom: "3rem" }}>
           <div>
-            <h3 className="text-xl font-bold text-primary mb-4">Pedagia</h3>
-            <p className="text-gray-300 text-sm">
-              Servicios educativos con IA para docentes colombianos. Planes de área,
-              guías, logros y más.
+            <h3 className="logo" style={{ marginBottom: "1rem" }}>
+              pedag<span className="accent">ia</span>
+            </h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", lineHeight: 1.6 }}>
+              Servicios educativos con IA para docentes colombianos. 
+              Planes de área, guías, logros y más.
             </p>
           </div>
+          
           <div>
-            <h4 className="font-semibold mb-4">Servicios</h4>
-            <ul className="space-y-2 text-gray-300 text-sm">
-              <li><Link href="/servicios">Planes de Área</Link></li>
-              <li><Link href="/servicios">Guías de Clase</Link></li>
-              <li><Link href="/servicios">Logros e Indicadores</Link></li>
-              <li><Link href="/servicios">Evaluaciones</Link></li>
+            <h4 style={{ fontWeight: 600, marginBottom: "1rem", color: "var(--text-primary)" }}>Servicios</h4>
+            <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+              <li><Link href="/servicios" className="footer-link">Planes de Área</Link></li>
+              <li><Link href="/servicios" className="footer-link">Guías de Clase</Link></li>
+              <li><Link href="/servicios" className="footer-link">Logros e Indicadores</Link></li>
+              <li><Link href="/servicios" className="footer-link">Evaluaciones</Link></li>
             </ul>
           </div>
+          
           <div>
-            <h4 className="font-semibold mb-4">Empresa</h4>
-            <ul className="space-y-2 text-gray-300 text-sm">
-              <li><Link href="/como-funciona">Cómo Funciona</Link></li>
-              <li><Link href="/casos-exito">Casos de Éxito</Link></li>
-              <li><Link href="/legal">Términos y Condiciones</Link></li>
-              <li><Link href="/contacto">Contacto</Link></li>
+            <h4 style={{ fontWeight: 600, marginBottom: "1rem", color: "var(--text-primary)" }}>Empresa</h4>
+            <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+              <li><Link href="/como-funciona" className="footer-link">Cómo Funciona</Link></li>
+              <li><Link href="/casos-exito" className="footer-link">Casos de Éxito</Link></li>
+              <li><Link href="/legal" className="footer-link">Términos y Condiciones</Link></li>
+              <li><Link href="/contacto" className="footer-link">Contacto</Link></li>
             </ul>
           </div>
+          
           <div>
-            <h4 className="font-semibold mb-4">Contacto</h4>
-            <p className="text-gray-300 text-sm">📱 WhatsApp: +57 300 000 0000</p>
-            <p className="text-gray-300 text-sm">📧 hola@pedagia.co</p>
+            <h4 style={{ fontWeight: 600, marginBottom: "1rem", color: "var(--text-primary)" }}>Contacto</h4>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", marginBottom: "0.5rem" }}>📱 +57 300 000 0000</p>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>📧 hola@pedagia.co</p>
           </div>
         </div>
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+        
+        <div style={{ 
+          borderTop: "1px solid var(--surface-border)", 
+          paddingTop: "2rem", 
+          textAlign: "center",
+          color: "var(--text-secondary)",
+          fontSize: "0.875rem"
+        }}>
           <p>© {currentYear} Pedagia. Todos los derechos reservados.</p>
         </div>
       </div>

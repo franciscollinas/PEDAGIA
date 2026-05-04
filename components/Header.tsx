@@ -1,37 +1,50 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-primary">
-          Pedagia
+    <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1rem 2rem" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <Image 
+              src="/images/logos/texto.png"
+              alt="Pedagia"
+              width={400}
+              height={120}
+              style={{ width: "200px", height: "auto" }}
+            />
         </Link>
-        <nav className="hidden md:flex gap-6" aria-label="Navegación principal">
-          <Link href="/servicios" className="text-gray-600 hover:text-primary transition focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded">
-            Servicios
-          </Link>
-          <Link href="/como-funciona" className="text-gray-600 hover:text-primary transition focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded">
-            Cómo Funciona
-          </Link>
-          <Link href="/casos-exito" className="text-gray-600 hover:text-primary transition focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded">
-            Casos de Éxito
-          </Link>
-          <Link href="/legal" className="text-gray-600 hover:text-primary transition focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded">
-            Legal
-          </Link>
-          <Link href="/contacto" className="text-gray-600 hover:text-primary transition focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded">
-            Contacto
-          </Link>
+        
+        <nav className="hidden md:flex" style={{ gap: "2rem" }} aria-label="Navegación principal">
+          <Link href="/servicios" className="nav-link">Servicios</Link>
+          <Link href="/como-funciona" className="nav-link">Cómo Funciona</Link>
+          <Link href="/casos-exito" className="nav-link">Casos de Éxito</Link>
+          <Link href="/legal" className="nav-link">Legal</Link>
+          <Link href="/contacto" className="nav-link">Contacto</Link>
         </nav>
+
         <a
           href="https://wa.me/573000000000?text=Hola! Me interesa conocer los servicios de Pedagia"
           target="_blank"
           rel="noopener noreferrer"
-          className="whatsapp-btn text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+          className="whatsapp-btn"
           aria-label="Contactar por WhatsApp"
         >
-          💬 WhatsApp
+          <span>💬</span>
+          <span>WhatsApp</span>
         </a>
       </div>
     </header>

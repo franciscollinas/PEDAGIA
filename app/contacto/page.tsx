@@ -3,125 +3,79 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contacto",
   description: "Contáctanos por WhatsApp, email o teléfono. Respuesta en menos de 2 horas.",
-  openGraph: {
-    title: "Contacto - Pedagia",
-    description: "Contáctanos para tus servicios educativos.",
-  },
 };
 
 export default function ContactoPage() {
   return (
-    <div className="py-12">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-dark mb-4">Contacto</h1>
-          <p className="text-xl text-gray-600">Escríbenos por el canal que prefieras</p>
+    <div className="section" style={{ paddingTop: "8rem" }}>
+      <div className="container">
+        <div style={{ textAlign: "center", marginBottom: "3rem", marginTop: "4rem" }}>
+          <h1 className="section-title">Contacto</h1>
+          <p className="section-subtitle" style={{ margin: "0 auto" }}>Escríbenos por el canal que prefieras</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Contacto directo */}
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <h2 className="text-xl font-semibold mb-4">📱 WhatsApp</h2>
-              <p className="text-gray-600 mb-4">Respuesta en menos de 2 horas</p>
-              <a
-                href="https://wa.me/573000000000?text=Hola! Me interesa conocer los servicios de Pedagia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="whatsapp-btn w-full justify-center" aria-label="Escribir por WhatsApp"
-              >
-                💬 Escribir por WhatsApp
-              </a>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <h2 className="text-xl font-semibold mb-4">📧 Email</h2>
-              <p className="text-gray-600 mb-2">hola@pedagia.co</p>
-              <p className="text-sm text-gray-500">Respuesta en 24-48 horas</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <h2 className="text-xl font-semibold mb-4">📞 Teléfono</h2>
-              <p className="text-gray-600 mb-2">+57 300 000 0000</p>
-              <p className="text-sm text-gray-500">Lun-Vie: 8am-6pm</p>
-            </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem" }}>
+          {/* WhatsApp */}
+          <div className="card" style={{ textAlign: "center" }}>
+            <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>💬</div>
+            <h3 style={{ marginBottom: "0.5rem" }}>WhatsApp</h3>
+            <p style={{ color: "var(--text-secondary)", marginBottom: "1.5rem" }}>Respuesta en menos de 2 horas</p>
+            <a href="https://wa.me/573000000000?text=Hola! Me interesa conocer los servicios" target="_blank" rel="noopener noreferrer" className="whatsapp-btn" style={{ justifyContent: "center" }}>
+              Escribir por WhatsApp
+            </a>
           </div>
 
-          {/* Formulario */}
-          <div className="bg-white p-6 rounded-xl shadow-sm">
-            <h2 className="text-xl font-semibold mb-4">💬 Envíanos un mensaje</h2>
-            <form className="space-y-4">
-              <div>
-                <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
-                <input
-                  id="nombre"
-                  type="text"
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
-                  placeholder="Tu nombre"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <input
-                  id="email"
-                  type="email"
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
-                  placeholder="tu@email.com"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="telefono" className="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
-                <input
-                  id="telefono"
-                  type="tel"
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
-                  placeholder="+57 300 000 0000"
-                />
-              </div>
-              <div>
-                <label htmlFor="mensaje" className="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
-                <textarea
-                  id="mensaje"
-                  rows={4}
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
-                  placeholder="¿En qué podemos ayudarte?"
-                  required
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary-dark transition focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-              >
-                Enviar mensaje
-              </button>
-            </form>
-            <p className="text-xs text-gray-500 mt-4 text-center">
-              O escríbenos directamente por WhatsApp para respuesta más rápida
-            </p>
+          {/* Email */}
+          <div className="card" style={{ textAlign: "center" }}>
+            <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>📧</div>
+            <h3 style={{ marginBottom: "0.5rem" }}>Email</h3>
+            <p style={{ color: "var(--text-secondary)" }}>hola@pedagia.co</p>
+            <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>Respuesta en 24-48 horas</p>
           </div>
+
+          {/* Teléfono */}
+          <div className="card" style={{ textAlign: "center" }}>
+            <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>📞</div>
+            <h3 style={{ marginBottom: "0.5rem" }}>Teléfono</h3>
+            <p style={{ color: "var(--text-secondary)" }}>+57 300 000 0000</p>
+            <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>Lun-Vie: 8am-6pm</p>
+          </div>
+        </div>
+
+        {/* Formulario */}
+        <div className="glass-panel" style={{ marginTop: "3rem", maxWidth: "600px", margin: "3rem auto 0" }}>
+          <h3 style={{ marginBottom: "1.5rem", textAlign: "center" }}>Envíanos un mensaje</h3>
+          <form style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <div>
+              <label className="input-label">Nombre</label>
+              <input type="text" className="input-field" placeholder="Tu nombre" />
+            </div>
+            <div>
+              <label className="input-label">Email</label>
+              <input type="email" className="input-field" placeholder="tu@email.com" />
+            </div>
+            <div>
+              <label className="input-label">Teléfono</label>
+              <input type="tel" className="input-field" placeholder="+57 300 000 0000" />
+            </div>
+            <div>
+              <label className="input-label">Mensaje</label>
+              <textarea className="input-field" rows={4} placeholder="¿En qué podemos ayudarte?" style={{ resize: "vertical" }}></textarea>
+            </div>
+            <button type="submit" className="btn-primary" style={{ marginTop: "1rem" }}>
+              Enviar mensaje
+            </button>
+          </form>
+          <p style={{ textAlign: "center", marginTop: "1rem", fontSize: "0.875rem", color: "var(--text-muted)" }}>
+            O escríbenos directamente por WhatsApp
+          </p>
         </div>
 
         {/* Horarios */}
-        <div className="mt-12 bg-light p-6 rounded-xl text-center">
-          <h3 className="text-lg font-semibold mb-2">🕐 Horarios de atención</h3>
-          <p className="text-gray-600">Lunes - Viernes: 8:00 AM - 6:00 PM</p>
-          <p className="text-gray-500 text-sm">Respuesta garantizada en menos de 2 horas por WhatsApp</p>
-        </div>
-
-        {/* CTA */}
-        <div className="mt-12 text-center">
-          <h3 className="text-2xl font-bold mb-4">¿Listo para transformar tu vida docente?</h3>
-          <p className="text-gray-600 mb-6">Contáctanos ahora y obtén tu primer documento de prueba</p>
-          <a
-            href="https://wa.me/573000000000?text=Hola! Quiero información sobre los servicios"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="whatsapp-btn text-lg" aria-label="Hablar por WhatsApp"
-          >
-            💬 Hablar por WhatsApp
-          </a>
+        <div style={{ textAlign: "center", marginTop: "3rem", padding: "2rem", background: "rgba(0,0,0,0.2)", borderRadius: "16px" }}>
+          <h3 style={{ marginBottom: "0.5rem" }}>🕐 Horarios de atención</h3>
+          <p style={{ color: "var(--text-secondary)" }}>Lunes - Viernes: 8:00 AM - 6:00 PM</p>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>Respuesta garantizada en menos de 2 horas</p>
         </div>
       </div>
     </div>
