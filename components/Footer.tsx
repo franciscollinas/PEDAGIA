@@ -39,8 +39,8 @@ export default function Footer() {
           
           <div>
             <h4 style={{ fontWeight: 600, marginBottom: "1rem", color: "var(--text-primary)" }}>Contacto</h4>
-            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", marginBottom: "0.5rem" }}>📱 +57 300 000 0000</p>
-            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>📧 hola@pedagia.co</p>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", marginBottom: "0.5rem" }}>📱 +57 304 633 6897</p>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>📧 fllinaspisciotti@gmail.com</p>
           </div>
         </div>
         

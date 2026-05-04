@@ -87,7 +87,7 @@ export default function CasosExitoPage() {
         <div style={{ textAlign: "center", marginTop: "3rem" }}>
           <h3 style={{ fontSize: "1.75rem", marginBottom: "1rem" }}>¿Quieres ser el próximo caso de éxito?</h3>
           <p style={{ color: "var(--text-secondary)", marginBottom: "1.5rem" }}>Contáctanos y obtén tu primer documento de prueba</p>
-          <a href="https://wa.me/573000000000?text=Hola! Quiero conocer los servicios de Pedagia" target="_blank" rel="noopener noreferrer" className="btn-primary">
+          <a href="https://wa.me/573046336897?text=Hola! Quiero conocer los servicios de Pedagia" target="_blank" rel="noopener noreferrer" className="btn-primary">
             💬 Hablar por WhatsApp
           </a>
         </div>

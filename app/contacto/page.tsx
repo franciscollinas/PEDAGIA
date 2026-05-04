@@ -20,7 +20,7 @@ export default function ContactoPage() {
             <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>💬</div>
             <h3 style={{ marginBottom: "0.5rem" }}>WhatsApp</h3>
             <p style={{ color: "var(--text-secondary)", marginBottom: "1.5rem" }}>Respuesta en menos de 2 horas</p>
-            <a href="https://wa.me/573000000000?text=Hola! Me interesa conocer los servicios" target="_blank" rel="noopener noreferrer" className="whatsapp-btn" style={{ justifyContent: "center" }}>
+            <a href="https://wa.me/573046336897?text=Hola! Me interesa conocer los servicios" target="_blank" rel="noopener noreferrer" className="whatsapp-btn" style={{ justifyContent: "center" }}>
               Escribir por WhatsApp
             </a>
           </div>
@@ -29,7 +29,7 @@ export default function ContactoPage() {
           <div className="card" style={{ textAlign: "center" }}>
             <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>📧</div>
             <h3 style={{ marginBottom: "0.5rem" }}>Email</h3>
-            <p style={{ color: "var(--text-secondary)" }}>hola@pedagia.co</p>
+            <p style={{ color: "var(--text-secondary)" }}>fllinaspisciotti@gmail.com</p>
             <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>Respuesta en 24-48 horas</p>
           </div>
 
@@ -37,7 +37,7 @@ export default function ContactoPage() {
           <div className="card" style={{ textAlign: "center" }}>
             <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>📞</div>
             <h3 style={{ marginBottom: "0.5rem" }}>Teléfono</h3>
-            <p style={{ color: "var(--text-secondary)" }}>+57 300 000 0000</p>
+            <p style={{ color: "var(--text-secondary)" }}>+57 304 633 6897</p>
             <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>Lun-Vie: 8am-6pm</p>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function ContactoPage() {
             </div>
             <div>
               <label className="input-label">Teléfono</label>
-              <input type="tel" className="input-field" placeholder="+57 300 000 0000" />
+              <input type="tel" className="input-field" placeholder="+57 304 633 6897" />
             </div>
             <div>
               <label className="input-label">Mensaje</label>

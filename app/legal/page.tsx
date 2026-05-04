@@ -115,7 +115,7 @@ export default function LegalPage() {
           <h4 style={{ fontWeight: 600, marginBottom: "0.75rem", color: "var(--gold)" }}>Derecho al olvido</h4>
           <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem", lineHeight: 1.6 }}>
             En cualquier momento puedes solicitar: acceso a tus datos, corrección si hay errores,
-            eliminación completa. Contacto: hola@pedagia.co
+            eliminación completa. Contacto: fllinaspisciotti@gmail.com
           </p>
         </div>
       </div>
@@ -303,7 +303,7 @@ export default function LegalPage() {
             <li>• Eres responsable del contenido después de recibirlo</li>
           </ul>
           <a
-            href="https://wa.me/573000000000?text=Hola! Quiero conocer los términos y condiciones"
+            href="https://wa.me/573046336897?text=Hola! Quiero conocer los términos y condiciones"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"

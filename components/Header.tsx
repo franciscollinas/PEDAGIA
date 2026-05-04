@@ -37,7 +37,7 @@ export default function Header() {
         </nav>
 
         <a
-          href="https://wa.me/573000000000?text=Hola! Me interesa conocer los servicios de Pedagia"
+          href="https://wa.me/573046336897?text=Hola! Me interesa conocer los servicios de Pedagia"
           target="_blank"
           rel="noopener noreferrer"
           className="whatsapp-btn"

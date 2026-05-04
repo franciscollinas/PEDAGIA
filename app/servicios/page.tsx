@@ -156,7 +156,7 @@ export default function ServiciosPage() {
                     </p>
                   </div>
                   <a
-                    href={`https://wa.me/573000000000?text=Hola! Me interesa el servicio de ${servicio.titulo}`}
+                    href={`https://wa.me/573046336897?text=Hola! Me interesa el servicio de ${servicio.titulo}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-primary"
@@ -186,7 +186,7 @@ export default function ServiciosPage() {
           <h3 style={{ fontSize: "1.75rem", marginBottom: "1rem" }}>¿Cuál es tu servicio ideal?</h3>
           <p style={{ color: "var(--text-secondary)", marginBottom: "1.5rem" }}>Escríbenos por WhatsApp y te asesoramos</p>
           <a
-            href="https://wa.me/573000000000?text=Hola! No estoy seguro qué servicio necesito, me puede orientar?"
+            href="https://wa.me/573046336897?text=Hola! No estoy seguro qué servicio necesito, me puede orientar?"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"

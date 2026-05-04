@@ -70,7 +70,7 @@ export default function Home() {
               </p>
               <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "2rem" }}>
                 <a
-                  href="https://wa.me/573000000000?text=Hola! Me interesa conocer los servicios"
+                  href="https://wa.me/573046336897?text=Hola! Me interesa conocer los servicios"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
@@ -287,7 +287,7 @@ export default function Home() {
               <p className="cta-subtitle">Contáctanos por WhatsApp y obtén tu primer documento en 24 horas</p>
             </div>
             <a
-              href="https://wa.me/573000000000?text=Hola! Quiero información sobre los servicios"
+              href="https://wa.me/573046336897?text=Hola! Quiero información sobre los servicios"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

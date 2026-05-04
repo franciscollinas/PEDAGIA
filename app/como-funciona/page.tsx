@@ -105,7 +105,7 @@ export default function ComoFuncionaPage() {
 
         <div style={{ textAlign: "center", marginTop: "3rem" }}>
           <p style={{ color: "var(--text-secondary)", marginBottom: "1.5rem" }}>¿Listo para probar? Escríbenos y te respondemos en minutos</p>
-          <a href="https://wa.me/573000000000?text=Hola! Quiero conocer más sobre los servicios" target="_blank" rel="noopener noreferrer" className="btn-primary">
+          <a href="https://wa.me/573046336897?text=Hola! Quiero conocer más sobre los servicios" target="_blank" rel="noopener noreferrer" className="btn-primary">
             💬 Empezar ahora
           </a>
         </div>
