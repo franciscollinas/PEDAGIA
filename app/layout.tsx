@@ -3,6 +3,7 @@ import { Outfit, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { siteUrl } from "@/lib/empresa";
 
 const outfit = Outfit({ 
   subsets: ["latin"],
@@ -16,12 +17,12 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pedagia.co"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Pedagia - Servicios Educativos IA para Docentes Colombianos",
+    default: "Pedagia - Documentos pedagógicos para docentes colombianos",
     template: "%s | Pedagia",
   },
-  description: "IA especializada en pedagogía colombiana. Planes de área, guías de clase, logros, evaluaciones. 24h entrega. Alineado con MEN.",
+  description: "Guías de clase, rúbricas, logros, informes y planes de área con el formato de tu colegio, revisados por una persona.",
   keywords: ["servicios educativos", "IA docente", "planes de área", "guías de clase", "pedagogía", "Colombia", "MEN", "DBA"],
   authors: [{ name: "Pedagia" }],
   creator: "Pedagia",
@@ -36,10 +37,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_CO",
-    url: "https://pedagia.co",
+    url: siteUrl,
     siteName: "Pedagia",
-    title: "Pedagia - Servicios Educativos IA",
-    description: "IA especializada en pedagogía colombiana. Planes de área, guías de clase, evaluaciones.",
+    title: "Pedagia - Documentos pedagógicos para docentes",
+    description: "Tu documento pedagógico listo para entregar, revisado por una persona.",
   },
 };
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { empresa, identificacionVendedor } from "@/lib/empresa";
 
 export default function Footer() {
   const currentYear = 2026;
@@ -31,7 +32,7 @@ export default function Footer() {
             <h4 style={{ fontWeight: 600, marginBottom: "1rem", color: "var(--text-primary)" }}>Empresa</h4>
             <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
               <li><Link href="/como-funciona" className="footer-link">Cómo Funciona</Link></li>
-              <li><Link href="/casos-exito" className="footer-link">Casos de Éxito</Link></li>
+              <li><Link href="/fundadores" className="footer-link">Docentes Fundadores</Link></li>
               <li><Link href="/legal" className="footer-link">Términos y Condiciones</Link></li>
               <li><Link href="/contacto" className="footer-link">Contacto</Link></li>
             </ul>
@@ -39,8 +40,8 @@ export default function Footer() {
           
           <div>
             <h4 style={{ fontWeight: 600, marginBottom: "1rem", color: "var(--text-primary)" }}>Contacto</h4>
-            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", marginBottom: "0.5rem" }}>📱 +57 304 633 6897</p>
-            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>📧 fllinaspisciotti@gmail.com</p>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", marginBottom: "0.5rem" }}>📱 {empresa.telefonoVisible}</p>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>📧 {empresa.email}</p>
           </div>
         </div>
         
@@ -52,6 +53,10 @@ export default function Footer() {
           fontSize: "0.875rem"
         }}>
           <p>© {currentYear} Pedagia. Todos los derechos reservados.</p>
+          <p style={{ marginTop: "0.5rem", fontSize: "0.8rem" }}>{identificacionVendedor}</p>
+          <p style={{ marginTop: "0.5rem", fontSize: "0.8rem" }}>
+            Los documentos son borradores de apoyo; el docente es responsable de revisarlos y usarlos.
+          </p>
         </div>
       </div>
     </footer>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { waLink } from "@/lib/empresa";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -31,13 +32,13 @@ export default function Header() {
         <nav className="hidden md:flex" style={{ gap: "2rem" }} aria-label="Navegación principal">
           <Link href="/servicios" className="nav-link">Servicios</Link>
           <Link href="/como-funciona" className="nav-link">Cómo Funciona</Link>
-          <Link href="/casos-exito" className="nav-link">Casos de Éxito</Link>
+          <Link href="/fundadores" className="nav-link">Fundadores</Link>
           <Link href="/legal" className="nav-link">Legal</Link>
           <Link href="/contacto" className="nav-link">Contacto</Link>
         </nav>
 
         <a
-          href="https://wa.me/573046336897?text=Hola! Me interesa conocer los servicios de Pedagia"
+          href={waLink("Hola! Me interesa conocer los servicios de Pedagia")}
           target="_blank"
           rel="noopener noreferrer"
           className="whatsapp-btn"

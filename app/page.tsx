@@ -1,92 +1,95 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { documentos, precioTexto } from "@/lib/catalogo";
+import { waLink } from "@/lib/empresa";
 
 export const metadata: Metadata = {
-  title: "Servicios Educativos IA para Docentes Colombianos",
-  description: "IA pedagógica para docentes. Planes de área, guías de clase, logros, evaluaciones desde $20.000 COP. Entrega 24h.",
+  title: "Documentos pedagógicos para docentes colombianos",
+  description:
+    "Guías de clase, rúbricas, logros, informes y planes de área con el formato de tu colegio, revisados por una persona. Desde $15.000 COP.",
   openGraph: {
-    title: "Pedagia - Servicios Educativos IA",
-    description: "IA pedagógica para docentes.",
+    title: "Pedagia - Documentos pedagógicos para docentes",
+    description: "Tu documento pedagógico listo para entregar, revisado por una persona.",
   },
 };
 
 export default function Home() {
-  const servicios = [
-    { nombre: "Plan de Área / Asignatura", precio: "$80.000 - $150.000", plazo: "48-72h" },
-    { nombre: "Contenidos Programáticos", precio: "$60.000 - $100.000", plazo: "24-48h" },
-    { nombre: "Guía de Clase / Taller", precio: "$30.000 - $55.000", plazo: "12-24h" },
-    { nombre: "Logros e Indicadores", precio: "$25.000 - $45.000", plazo: "12-24h" },
-    { nombre: "Rúbrica de Evaluación", precio: "$20.000 - $35.000", plazo: "12h" },
-    { nombre: "Instrumento de Evaluación", precio: "$30.000 - $50.000", plazo: "24h" },
-    { nombre: "Proyecto de Aula", precio: "$120.000 - $200.000", plazo: "3-5 días" },
-    { nombre: "Secuencia Didáctica", precio: "$45.000 - $80.000", plazo: "48h" },
-    { nombre: "Informe de Período", precio: "$5.000 - $8.000", plazo: "12h" },
-    { nombre: "Plan de Mejoramiento", precio: "$15.000 - $25.000", plazo: "24h" },
-  ];
+  const destacados = documentos.filter((d) => ["guia-clase", "rubrica", "logros", "informes", "plan-area"].includes(d.id));
 
   const faqs = [
-    { pregunta: "¿Cuánto tiempo toma recibir mi documento?", respuesta: "24-72 horas dependiendo de complejidad. Urgencias disponibles con +30%." },
-    { pregunta: "¿Los documentos son de verdad IA?", respuesta: "Sí. Pero son revisados por pedagogos expertos antes de entregarte." },
-    { pregunta: "¿Puedo usar el mismo documento en otro colegio?", respuesta: "No. Cada documento es personalizado para tu institución." },
-    { pregunta: "¿Qué pasa si el documento no me gusta?", respuesta: "Revisión gratis hasta 2 veces. Si persisten problemas, reembolso del 50%." },
-    { pregunta: "¿Cómo sé que es legal?", respuesta: "Términos y Condiciones claros + Ley 1581 (Habeas Data) garantizada." },
-    { pregunta: "¿Necesito firma digital?", respuesta: "No. Confirmación por WhatsApp es legal en Colombia (Ley 527/1999)." },
+    {
+      pregunta: "¿Cuánto tarda mi documento?",
+      respuesta: "Los documentos cortos, 24 horas hábiles. El plan de área, 72 horas hábiles; el proyecto de aula, 5 días. Para urgencias (menos de 12 horas) hay un recargo del 30 % si tenemos cupo.",
+    },
+    {
+      pregunta: "¿Los documentos los hace una IA?",
+      respuesta: "Sí, un borrador lo redacta inteligencia artificial y una persona lo revisa antes de entregarlo. Tú, como docente, también debes leerlo y adaptarlo antes de usarlo.",
+    },
+    {
+      pregunta: "¿Usan el formato de mi colegio?",
+      respuesta: "Sí. Cuéntanos o envíanos el formato que te piden y lo seguimos. Si no tienes uno, usamos una estructura estándar.",
+    },
+    {
+      pregunta: "¿Qué pasa si no me sirve?",
+      respuesta: "Hasta 2 ajustes gratis. Si después de eso no corresponde a lo acordado, te devolvemos el 100 %. Si no cumplimos el plazo, te devolvemos el 50 %.",
+    },
+    {
+      pregunta: "¿Qué datos de mis estudiantes necesitan?",
+      respuesta: "Ninguno que los identifique. Para informes usamos códigos o solo el primer nombre. Nunca pedimos apellidos, documentos ni información de salud.",
+    },
+    {
+      pregunta: "¿Cómo pago y acepto?",
+      respuesta: "Te enviamos un resumen del pedido con precio y plazo por WhatsApp; lo aceptas escribiendo ACEPTO y pagas con el medio que te indiquemos. Detalles en la página de Legal.",
+    },
   ];
 
   return (
     <>
-      {/* === HERO SECTION === */}
+      {/* === HERO === */}
       <section className="hero-section">
         <div className="container">
           <div className="hero-grid">
-            {/* LADO IZQUIERDO - TEXTO */}
             <div className="animate-fade-in">
-              <h1 style={{ 
-                fontSize: "4.5rem", 
-                fontWeight: 700, 
-                lineHeight: 1.05, 
-                marginBottom: "1.5rem",
-                textTransform: "uppercase",
-                letterSpacing: "-0.02em"
-              }}>
+              <h1
+                style={{
+                  fontSize: "4.5rem",
+                  fontWeight: 700,
+                  lineHeight: 1.05,
+                  marginBottom: "1.5rem",
+                  textTransform: "uppercase",
+                  letterSpacing: "-0.02em",
+                }}
+              >
                 <span style={{ fontSize: "6rem", color: "var(--text-primary)", display: "block", textShadow: "0 0 60px rgba(212,175,55,0.3)" }}>
                   PEDAGOGÍA
                 </span>
-                <span style={{ 
-                  fontSize: "2.5rem", 
-                  color: "var(--gold)", 
-                  display: "block", 
-                  marginTop: "0.5rem",
-                  textShadow: "0 0 40px var(--gold-glow)",
-                  fontWeight: 500
-                }}>
+                <span style={{ fontSize: "2.5rem", color: "var(--gold)", display: "block", marginTop: "0.5rem", textShadow: "0 0 40px var(--gold-glow)", fontWeight: 500 }}>
                   + MAGIA + <span style={{ color: "var(--gold-light)" }}>IA</span>
                 </span>
-</h1>
-              <p className="hero-subtitle" style={{ fontSize: "1.25rem", maxWidth: "500px" }}>
-                Transforma tu trabajo docente con inteligencia artificial. 
-                Planes de área, guías de clase, logros y evaluaciones — todo en 24 horas. 
-                Alineado con MEN. Profesional. Listo para usar.
+              </h1>
+              <p className="hero-subtitle" style={{ fontSize: "1.25rem", maxWidth: "520px" }}>
+                Guías, rúbricas, logros, informes y planes de área listos para entregar,
+                con el formato de tu colegio y revisados por una persona.
+                Recupera tu tiempo.
               </p>
               <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "2rem" }}>
                 <a
-                  href="https://wa.me/573046336897?text=Hola! Me interesa conocer los servicios"
+                  href={waLink("Hola! Quiero mi guía de muestra gratis. Mi área es ___ y mi grado es ___.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
-
                 >
-                  💬 Hablar por WhatsApp
+                  💬 Pedir guía de muestra gratis
                 </a>
-                <a href="/servicios" className="btn-outline" style={{ padding: "16px 32px", fontSize: "1rem" }}>
-                  Ver servicios
-                </a>
+                <Link href="/servicios" className="btn-outline" style={{ padding: "16px 32px", fontSize: "1rem" }}>
+                  Ver servicios y precios
+                </Link>
               </div>
             </div>
-            
-{/* LADO DERECHO - LOGO */}
+
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Image 
+              <Image
                 src="/images/logos/logoimg.png"
                 alt="Pedagia"
                 width={800}
@@ -102,58 +105,56 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <h2 className="section-title" style={{ textAlign: "center", marginBottom: "3rem" }}>
-            La realidad del docente colombiano
+            Menos papeleo, más tiempo para enseñar
           </h2>
-          
+
           <div className="problema-solucion-grid">
             <div className="glass-panel" style={{ borderLeft: "3px solid #ef4444" }}>
               <h3 style={{ fontSize: "1.25rem", fontWeight: 600, color: "#ef4444", marginBottom: "1.5rem" }}>
-                ❌ Problema actual
+                Lo que le pasa a muchos docentes
               </h3>
               <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "1rem" }}>
-                <li>💼 Trabajas 2-3 turnos: escuela + particulares + online</li>
-                <li>💰 Ganas $2.5M - $4.5M/mes (insuficiente)</li>
-                <li>⏰ 15-20 horas SEMANALES creando contenidos</li>
-                <li>❌ Pagas $30k-$150k a terceros por tarea</li>
-                <li>⚖️ Riesgos legales: plagio, contenido inadecuado</li>
+                <li>⏰ Horas de planeación fuera del horario de clase</li>
+                <li>📄 Formatos distintos que cambian por colegio y por período</li>
+                <li>🤖 Chatbots gratuitos que inventan DBA o no siguen tu formato</li>
+                <li>💸 Pagar a terceros sin saber si el resultado sirve</li>
               </ul>
             </div>
-            
+
             <div className="glass-panel" style={{ borderLeft: "3px solid var(--gold)" }}>
               <h3 style={{ fontSize: "1.25rem", fontWeight: 600, color: "var(--gold)", marginBottom: "1.5rem" }}>
-                ✅ Nuestra solución
+                Lo que hacemos distinto
               </h3>
               <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "1rem" }}>
-                <li>✅ IA especializada en pedagogía colombiana</li>
-                <li>✅ Documentos alineados con DBA y normativa MEN</li>
-                <li>✅ 50% más barato que servicios informales</li>
-                <li>✅ Sin riesgos legales (marco contractual claro)</li>
-                <li>✅ Recuperas 15-20 horas/mes</li>
+                <li>✅ Seguimos tu formato y tu contexto (área, grado, colegio)</li>
+                <li>✅ Verificamos los DBA contra el documento oficial del MEN</li>
+                <li>✅ Una persona revisa cada documento antes de entregarlo</li>
+                <li>✅ Precio fijo y garantía clara</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* === CÓMO FUNCIONA (TIMELINE) === */}
+      {/* === CÓMO FUNCIONA === */}
       <section className="section" style={{ background: "rgba(0,0,0,0.2)" }}>
         <div className="container">
           <h2 className="section-title" style={{ textAlign: "center", marginBottom: "1rem" }}>
             ¿Cómo funciona?
           </h2>
           <p className="section-subtitle" style={{ textAlign: "center", margin: "0 auto 3rem" }}>
-            Proceso simple y efectivo en 5 pasos
+            Cinco pasos, todo por WhatsApp
           </p>
-          
+
           <div className="timeline">
             {[
-              { paso: "1", titulo: "WhatsApp", desc: "Contactas y cuéntanos tu necesidad" },
-              { paso: "2", titulo: "Mini-contrato", desc: "IA genera propuesta" },
-              { paso: "3", titulo: "Pago", desc: "Link seguro" },
-              { paso: "4", titulo: "IA trabaja", desc: "7 agentes procesan" },
-              { paso: "5", titulo: "Entrega", desc: "En tu Drive" },
-            ].map((item, i) => (
-              <div key={i} className="timeline-step">
+              { paso: "1", titulo: "Cuéntanos", desc: "Área, grado y qué necesitas" },
+              { paso: "2", titulo: "Resumen", desc: "Precio y plazo claros" },
+              { paso: "3", titulo: "Pago", desc: "Con el medio que acordemos" },
+              { paso: "4", titulo: "Elaboración", desc: "IA redacta y una persona revisa" },
+              { paso: "5", titulo: "Entrega", desc: "En tu Drive o por WhatsApp" },
+            ].map((item) => (
+              <div key={item.paso} className="timeline-step">
                 <div className="step-number">{item.paso}</div>
                 <h4 style={{ fontWeight: 600, marginBottom: "0.5rem" }}>{item.titulo}</h4>
                 <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>{item.desc}</p>
@@ -167,93 +168,43 @@ export default function Home() {
       <section className="section" id="servicios">
         <div className="container">
           <h2 className="section-title" style={{ textAlign: "center", marginBottom: "1rem" }}>
-            Nuestros Servicios
+            Precio fijo, sin sorpresas
           </h2>
           <p className="section-subtitle" style={{ textAlign: "center", margin: "0 auto 3rem" }}>
-            Precios claros, sin sorpresas
+            Algunos de nuestros documentos
           </p>
-          
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
-            {servicios.map((servicio, i) => (
-              <div key={i} className="card">
-                <h3 style={{ fontWeight: 600, fontSize: "1.1rem", marginBottom: "1rem" }}>{servicio.nombre}</h3>
-                <p style={{ fontSize: "1.75rem", fontWeight: 700, color: "var(--gold)", marginBottom: "0.5rem" }}>{servicio.precio}</p>
-                <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>Entrega: {servicio.plazo}</p>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))", gap: "1.5rem" }}>
+            {destacados.map((d) => (
+              <div key={d.id} className="card">
+                <h3 style={{ fontWeight: 600, fontSize: "1.1rem", marginBottom: "1rem" }}>{d.nombre}</h3>
+                <p style={{ fontSize: "1.75rem", fontWeight: 700, color: "var(--gold)", marginBottom: "0.5rem" }}>{precioTexto(d)}</p>
+                <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>Entrega: {d.plazo}</p>
               </div>
             ))}
           </div>
-          
-          <div className="glass-panel" style={{ marginTop: "2rem", textAlign: "center", padding: "1.5rem" }}>
-            <p style={{ fontSize: "0.9rem" }}>
-              <span style={{ color: "var(--gold)", fontWeight: 600 }}>Notas:</span> +30% urgente | -20% paquetes 5+ servicios
-            </p>
+
+          <div style={{ textAlign: "center", marginTop: "2rem" }}>
+            <Link href="/servicios" className="btn-outline" style={{ padding: "14px 28px" }}>
+              Ver todos los documentos y suscripciones
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* === CASOS DE ÉXITO === */}
+      {/* === FUNDADORES (en lugar de testimonios) === */}
       <section className="section" style={{ background: "rgba(0,0,0,0.2)" }}>
-        <div className="container">
-          <h2 className="section-title" style={{ textAlign: "center", marginBottom: "1rem" }}>
-            Casos de Éxito
+        <div className="container" style={{ maxWidth: "800px", textAlign: "center" }}>
+          <h2 className="section-title" style={{ marginBottom: "1rem" }}>
+            Estamos empezando, y por eso no inventamos testimonios
           </h2>
-          <p className="section-subtitle" style={{ textAlign: "center", margin: "0 auto 3rem" }}>
-            Docentes que ya transformaron su trabajo
+          <p style={{ color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: "2rem" }}>
+            Buscamos 10 docentes fundadores: 50 % de descuento durante 3 meses a cambio de tu opinión
+            honesta. Solo mostramos tu experiencia si tú lo autorizas por escrito.
           </p>
-          
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
-            {[
-              { 
-                nombre: "María González", 
-                rol: "Docente de Lenguaje", 
-                inicial: "M",
-                texto: "Los documentos que recibo son exactamente como si yo los hubiera escrito, pero sin perder 18 horas de mi tiempo.",
-                stats: "18h → 3h | $400k → $280k"
-              },
-              { 
-                nombre: "Carlos López", 
-                rol: "Docente de Matemáticas", 
-                inicial: "C",
-                texto: "La IA entiende lo que necesito. Es como tener un asistente pedagógico que trabaja 24/7.",
-                stats: "$90k → $40k por guía"
-              },
-              { 
-                nombre: "Andrea Martínez", 
-                rol: "Coordinadora de Área", 
-                inicial: "A",
-                texto: "Mis docentes ahora gastan el 30% menos tiempo en administración. Pueden enfocarse en enseñar.",
-                stats: "4 sedes estandarizadas"
-              },
-            ].map((t, i) => (
-              <div key={i} className="testimonial-card">
-                <div className="stars">★★★★★</div>
-                <p className="quote">"{t.texto}"</p>
-                <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginTop: "1rem" }}>
-                  <div className="avatar">{t.inicial}</div>
-                  <div>
-                    <p className="author">{t.nombre}</p>
-                    <p className="role">{t.rol}</p>
-                  </div>
-                </div>
-                <p style={{ fontSize: "0.85rem", color: "var(--gold)", marginTop: "1rem" }}>✅ {t.stats}</p>
-              </div>
-            ))}
-          </div>
-          
-          {/* Stats */}
-          <div className="stats-grid" style={{ marginTop: "3rem" }}>
-            {[
-              { valor: "25+", label: "Docentes atendidos" },
-              { valor: "98%", label: "Satisfacción" },
-              { valor: "15-20h", label: "Ahorradas/mes" },
-              { valor: "100%", label: "MEN-conformes" },
-            ].map((stat, i) => (
-              <div key={i} className="stat-card">
-                <div className="value">{stat.valor}</div>
-                <div className="label">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          <Link href="/fundadores" className="btn-primary">
+            Conocer el programa
+          </Link>
         </div>
       </section>
 
@@ -261,12 +212,12 @@ export default function Home() {
       <section className="section">
         <div className="container" style={{ maxWidth: "800px" }}>
           <h2 className="section-title" style={{ textAlign: "center", marginBottom: "2rem" }}>
-            Preguntas Frecuentes
+            Preguntas frecuentes
           </h2>
-          
+
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            {faqs.map((faq, i) => (
-              <details key={i} className="faq-item">
+            {faqs.map((faq) => (
+              <details key={faq.pregunta} className="faq-item">
                 <summary>
                   <span>{faq.pregunta}</span>
                   <span className="icon">▼</span>
@@ -283,17 +234,17 @@ export default function Home() {
         <div className="container">
           <div className="cta-section">
             <div>
-              <h2 className="cta-title">¿Listo para transformar tu trabajo docente?</h2>
-              <p className="cta-subtitle">Contáctanos por WhatsApp y obtén tu primer documento en 24 horas</p>
+              <h2 className="cta-title">¿Quieres ver si te sirve?</h2>
+              <p className="cta-subtitle">Pide una guía de muestra gratis y juzga tú mismo</p>
             </div>
             <a
-              href="https://wa.me/573046336897?text=Hola! Quiero información sobre los servicios"
+              href={waLink("Hola! Quiero mi guía de muestra gratis. Mi área es ___ y mi grado es ___.")}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
               style={{ padding: "1rem 2.5rem", fontSize: "1rem" }}
             >
-              💬 Hablar por WhatsApp
+              💬 Pedir guía gratis
             </a>
           </div>
         </div>

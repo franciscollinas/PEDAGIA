@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Términos y Privacidad",
-  description: "Términos y condiciones, política de privacidad, garantías del contenido. Cumplimiento Ley 1581/2012 y Ley 527/1999.",
+  title: "Términos, privacidad y garantía",
+  description: "Términos y condiciones, tratamiento de datos personales y garantía de reembolso de Pedagia.",
 };
 
 export default function LegalLayout({

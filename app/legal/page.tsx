@@ -1,253 +1,258 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
+import { empresa, identificacionVendedor, waLink } from "@/lib/empresa";
+
+const H = ({ children }: { children: ReactNode }) => (
+  <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", color: "var(--gold)" }}>{children}</h3>
+);
+const P = ({ children }: { children: ReactNode }) => (
+  <p style={{ color: "var(--text-secondary)", lineHeight: 1.7, marginTop: "0.75rem" }}>{children}</p>
+);
+const B = ({ children }: { children: ReactNode }) => (
+  <strong style={{ color: "var(--text-primary)" }}>{children}</strong>
+);
+const UL = ({ children }: { children: ReactNode }) => (
+  <ul style={{ paddingLeft: "1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
+    {children}
+  </ul>
+);
+const Seccion = ({ children }: { children: ReactNode }) => <div>{children}</div>;
+const Stack = ({ children }: { children: ReactNode }) => (
+  <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>{children}</div>
+);
+
+const tabs = [
+  { id: "terminos", label: "Términos y condiciones" },
+  { id: "privacidad", label: "Privacidad y datos" },
+  { id: "garantias", label: "Garantía y reembolsos" },
+  { id: "preguntas", label: "Preguntas frecuentes" },
+] as const;
+
+type TabId = (typeof tabs)[number]["id"];
+
+const contenido: Record<TabId, ReactNode> = {
+  terminos: (
+    <Stack>
+      <Seccion>
+        <H>Quién presta el servicio</H>
+        <P>{identificacionVendedor}. Contacto: {empresa.email} · {empresa.telefonoVisible}.</P>
+      </Seccion>
+
+      <Seccion>
+        <H>Qué es el servicio</H>
+        <P>
+          Elaboramos borradores de documentos pedagógicos (guías, rúbricas, logros, informes, planes) con apoyo de
+          inteligencia artificial y revisión de una persona. Son material de apoyo para el docente.
+        </P>
+        <P>
+          <B>El docente es responsable</B> de leer el documento, adaptarlo a su contexto, cumplir las políticas de su
+          institución y proteger los datos de sus estudiantes.
+        </P>
+      </Seccion>
+
+      <Seccion>
+        <H>Qué ofrecemos y qué no</H>
+        <UL>
+          <li>✓ Alinear el documento con los DBA y lineamientos del MEN publicados, verificándolos contra el documento oficial.</li>
+          <li>✓ Seguir el formato que nos indiques y el nivel del grado.</li>
+          <li>✗ No garantizamos resultados de aprendizaje de los estudiantes.</li>
+          <li>✗ No garantizamos la aceptación de tu institución, que depende de sus políticas internas.</li>
+        </UL>
+      </Seccion>
+
+      <Seccion>
+        <H>Cómo se acepta un pedido</H>
+        <P>
+          Te enviamos por WhatsApp un resumen con el documento, el precio, el plazo y la garantía. Si escribes
+          “ACEPTO”, confirmas que leíste estos términos y la política de privacidad. Guardamos la fecha, la hora, el texto
+          aceptado y tu número como prueba de aceptación (Ley 527 de 1999).
+        </P>
+      </Seccion>
+
+      <Seccion>
+        <H>Plazos y pago</H>
+        <UL>
+          <li>Los plazos se cuentan en horas hábiles desde que recibimos el pago y la información completa.</li>
+          <li>Urgente (menos de 12 horas): recargo del 30 % si tenemos cupo.</li>
+          <li>Los precios publicados están en pesos colombianos (COP).</li>
+        </UL>
+      </Seccion>
+
+      <Seccion>
+        <H>Cancelación</H>
+        <UL>
+          <li>Antes de que empecemos el trabajo: reembolso del 100 %.</li>
+          <li>Una vez iniciado o entregado: aplica la garantía de la pestaña “Garantía y reembolsos”. Al pedir el servicio autorizas expresamente que empecemos de inmediato.</li>
+        </UL>
+      </Seccion>
+
+      <Seccion>
+        <H>Uso del documento</H>
+        <P>
+          Recibes una licencia de uso para tu trabajo docente y el de tu institución. No puedes revender el documento ni
+          publicarlo como si fuera un producto propio. Los DBA y demás documentos del MEN son públicos.
+        </P>
+      </Seccion>
+
+      <Seccion>
+        <H>Conflictos</H>
+        <P>
+          Escríbenos primero a {empresa.email}; buscamos resolverlo directamente. También puedes acudir a los mecanismos
+          de conciliación y a la Superintendencia de Industria y Comercio (SIC) como autoridad de protección al consumidor.
+        </P>
+      </Seccion>
+    </Stack>
+  ),
+
+  privacidad: (
+    <Stack>
+      <Seccion>
+        <H>Responsable del tratamiento</H>
+        <P>{identificacionVendedor}. Canal para consultas y reclamos: {empresa.email}.</P>
+      </Seccion>
+
+      <Seccion>
+        <H>Qué datos recogemos</H>
+        <UL>
+          <li>Nombre y número de WhatsApp.</li>
+          <li>Correo (si nos lo das).</li>
+          <li>Institución, área y grados que enseñas.</li>
+          <li>Contexto del documento: tipo de colegio, enfoque pedagógico y formato que usas.</li>
+          <li>Registro de tu aceptación de estos términos y de los pagos.</li>
+        </UL>
+      </Seccion>
+
+      <Seccion>
+        <H>Datos de estudiantes: no los necesitamos</H>
+        <P>
+          <B>No pedimos ni queremos datos que identifiquen a tus estudiantes.</B> Para informes de período usamos
+          códigos o solo el primer nombre. Por favor <B>no envíes</B> apellidos, documentos de identidad, fotos,
+          diagnósticos ni información de salud. Si recibimos datos de ese tipo, los eliminamos y te avisamos.
+        </P>
+      </Seccion>
+
+      <Seccion>
+        <H>Para qué usamos tus datos</H>
+        <UL>
+          <li>Elaborar y entregar tu pedido.</li>
+          <li>Cobrar, facturar y atender garantías.</li>
+          <li>Comunicarnos contigo sobre tu pedido.</li>
+          <li>Mejorar el servicio (por ejemplo, una breve encuesta tras la entrega).</li>
+        </UL>
+        <P>No vendemos tus datos ni los usamos para publicidad de terceros.</P>
+      </Seccion>
+
+      <Seccion>
+        <H>Con qué proveedores trabajamos</H>
+        <P>
+          Para prestar el servicio usamos proveedores que pueden procesar datos fuera de Colombia: WhatsApp (Meta),
+          Google (Drive y documentos), el proveedor del modelo de inteligencia artificial, el alojamiento del sitio
+          (Vercel) y la pasarela de pagos. Al aceptar autorizas esta transferencia. Enviamos a la IA solo lo necesario
+          para elaborar el documento.
+        </P>
+      </Seccion>
+
+      <Seccion>
+        <H>Tus derechos (Ley 1581 de 2012)</H>
+        <UL>
+          <li>Conocer, actualizar y rectificar tus datos.</li>
+          <li>Solicitar prueba de la autorización y pedir que la revoquemos.</li>
+          <li>Pedir la supresión de tus datos.</li>
+          <li>Presentar quejas ante la SIC.</li>
+        </UL>
+        <P>Escríbenos a {empresa.email} y respondemos dentro de los plazos legales.</P>
+      </Seccion>
+
+      <Seccion>
+        <H>Conservación</H>
+        <P>
+          Conservamos tus datos mientras seas cliente y hasta 2 años después, salvo que una obligación legal (por
+          ejemplo, contable) nos exija más tiempo. Luego los eliminamos.
+        </P>
+      </Seccion>
+    </Stack>
+  ),
+
+  garantias: (
+    <Stack>
+      <Seccion>
+        <H>Nuestra garantía</H>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          {[
+            ["1. Ajustes gratis", "Hasta 2 rondas de ajustes por documento, sin costo."],
+            ["2. No corresponde a lo acordado", "Si después de los ajustes el documento no corresponde a lo acordado en el resumen del pedido, te devolvemos el 100 %."],
+            ["3. Plazo incumplido", "Si no entregamos dentro del plazo acordado por causas nuestras, te devolvemos el 50 %."],
+          ].map(([t, d]) => (
+            <div key={t} style={{ border: "1px solid var(--surface-border)", padding: "1rem", borderRadius: "8px" }}>
+              <h4 style={{ fontWeight: 600, color: "var(--text-primary)" }}>{t}</h4>
+              <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", marginTop: "0.5rem" }}>{d}</p>
+            </div>
+          ))}
+        </div>
+      </Seccion>
+
+      <Seccion>
+        <H>Qué no cubre la garantía</H>
+        <UL>
+          <li>Cambios de alcance pedidos después de la entrega (se cotizan como un nuevo pedido).</li>
+          <li>Que tu institución prefiera otro formato que no nos indicaste desde el inicio.</li>
+          <li>Resultados de aprendizaje de los estudiantes.</li>
+        </UL>
+      </Seccion>
+
+      <Seccion>
+        <H>Cómo pedir un reembolso</H>
+        <UL>
+          <li>Escríbenos a {empresa.email} o por WhatsApp con el número de tu pedido.</li>
+          <li>Respondemos en 2 días hábiles y, si procede, lo devolvemos por el mismo medio de pago en un máximo de 7 días hábiles.</li>
+        </UL>
+      </Seccion>
+
+      <Seccion>
+        <H>Derechos del consumidor</H>
+        <P>Esta garantía no limita los derechos que la ley (Ley 1480 de 2011) te reconoce como consumidor.</P>
+      </Seccion>
+    </Stack>
+  ),
+
+  preguntas: (
+    <Stack>
+      {[
+        ["¿Necesito firma digital?", "No. Escribir “ACEPTO” por WhatsApp sirve como aceptación y guardamos el registro (Ley 527 de 1999)."],
+        ["¿Puedo usar el documento en otro colegio?", "Puedes usarlo en tu trabajo docente, incluido más de un colegio donde trabajes, pero no revenderlo ni publicarlo como producto propio."],
+        ["¿Qué pasa si mi colegio cuestiona el uso de IA?", "El documento es material de apoyo que tú revisas y adaptas, como una guía editorial. Te recomendamos informar a tu coordinación que usaste una herramienta de apoyo."],
+        ["¿Incluyen adecuaciones para inclusión?", "Podemos incluir sugerencias generales. Para adaptaciones específicas, cuéntanos la necesidad sin datos que identifiquen al estudiante; se cotiza como complemento."],
+        ["¿Qué pasa si cambian los DBA o la norma?", "Trabajamos con la versión vigente al momento del pedido. Si algo cambia en los 3 meses siguientes y afecta tu documento, lo actualizamos sin costo."],
+        ["¿Puedo reutilizar un documento del año pasado?", "Sí, pero conviene revisarlo cada año. Podemos actualizarlo; te cotizamos según el alcance."],
+      ].map(([q, a], i, arr) => (
+        <div key={q} style={i < arr.length - 1 ? { borderBottom: "1px solid var(--surface-border)", paddingBottom: "1.5rem" } : undefined}>
+          <p style={{ fontWeight: 600, color: "var(--gold)" }}>{q}</p>
+          <P>{a}</P>
+        </div>
+      ))}
+    </Stack>
+  ),
+};
 
 export default function LegalPage() {
-  const [activeTab, setActiveTab] = useState("terminos");
-
-  const tabs = [
-    { id: "terminos", label: "Términos y Condiciones" },
-    { id: "privacidad", label: "Política de Privacidad" },
-    { id: "garantias", label: "Garantías del Contenido" },
-    { id: "preguntas", label: "Preguntas Jurídicas" },
-  ];
-
-  const contenido = {
-    terminos: (
-      <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-        <div>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", color: "var(--gold)" }}>¿Qué es exactamente el servicio?</h3>
-          <p style={{ color: "var(--text-secondary)", lineHeight: 1.7 }}>
-            Este servicio es prestación de asistencia educativa y producción de contenido pedagógico
-            mediante IA especializada. La empresa actúa como proveedor de herramientas y contenidos
-            de apoyo, análogo a la venta de libros de texto, guías editoriales o plantillas de planeación.
-          </p>
-          <p style={{ color: "var(--text-secondary)", marginTop: "1rem", lineHeight: 1.7 }}>
-            <strong style={{ color: "var(--text-primary)" }}>El docente es siempre responsable</strong> de: revisar los contenidos antes de usarlos
-            en clase, adaptar a su contexto específico, cumplir políticas institucionales y proteger datos de estudiantes.
-          </p>
-        </div>
-
-        <div>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", color: "var(--gold)" }}>Alcance de responsabilidad</h3>
-          <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.75rem", color: "var(--text-secondary)" }}>
-            <li>✓ <strong style={{ color: "var(--text-primary)" }}>Comprometemos:</strong> Documentos alineados con DBA, estructura pedagógica estándar, lenguaje apropiado para nivel</li>
-            <li>✗ <strong style={{ color: "var(--text-primary)" }}>NO comprometemos:</strong> Que el documento cambie resultados en el aula (depende de tu implementación)</li>
-            <li>✗ <strong style={{ color: "var(--text-primary)" }}>NO comprometemos:</strong> Resultados específicos de aprendizaje de estudiantes</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", color: "var(--gold)" }}>Resolución de conflictos</h3>
-          <ol style={{ paddingLeft: "1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", color: "var(--text-secondary)" }}>
-            <li><strong style={{ color: "var(--text-primary)" }}>Insatisfacción con el documento:</strong> Revisión gratis (máx 2 veces)</li>
-            <li><strong style={{ color: "var(--text-primary)" }}>El documento no corresponde al alcance:</strong> Reembolso 50%</li>
-            <li><strong style={{ color: "var(--text-primary)" }}>Plazo incumplido:</strong> Reembolso 50% + $50k compensación</li>
-            <li><strong style={{ color: "var(--text-primary)" }}>Disputas mayores:</strong> Resolución por mediación (Ley 570/2013)</li>
-          </ol>
-        </div>
-
-        <div>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", color: "var(--gold)" }}>Renovación y cancelación</h3>
-          <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem", color: "var(--text-secondary)" }}>
-            <li>• Sin período de contrato fijo (por servicio)</li>
-            <li>• Cancelación antes de entrega: Reembolso 100%</li>
-            <li>• Cancelación después de entrega: Sin derecho a reembolso</li>
-          </ul>
-        </div>
-      </div>
-    ),
-
-    privacidad: (
-      <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-        <div>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", color: "var(--gold)" }}>Cumplimiento normativo</h3>
-          <p style={{ color: "var(--text-secondary)", lineHeight: 1.7 }}>
-            Cumplimos <strong style={{ color: "var(--gold-light)" }}>Ley 1581/2012</strong> (Habeas Data) en todo tratamiento de datos personales.
-          </p>
-        </div>
-
-        <div>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", color: "var(--gold)" }}>¿Qué datos recogemos?</h3>
-          <ul style={{ paddingLeft: "1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", color: "var(--text-secondary)" }}>
-            <li>Nombre y teléfono (WhatsApp)</li>
-            <li>Email (opcional)</li>
-            <li>Institución y área de trabajo</li>
-            <li>Asignatura y grados que enseña</li>
-            <li>Contexto específico (oficial/privada, rural/urbana, enfoque pedagógico)</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", color: "var(--gold)" }}>¿Para qué usamos tus datos?</h3>
-          <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem", color: "var(--text-secondary)" }}>
-            <li>✓ Crear tu mini-contrato personalizado</li>
-            <li>✓ Generar contenido adaptado a tu contexto</li>
-            <li>✓ Facturación y comunicación</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", color: "var(--gold)" }}>¿A quién NO le vendemos tus datos?</h3>
-          <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem", color: "var(--text-secondary)" }}>
-            <li>✗ NUNCA a plataformas de publicidad</li>
-            <li>✗ NUNCA a terceros comerciales</li>
-            <li>✗ NUNCA datos de tus estudiantes (no los recogemos)</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", color: "var(--gold)" }}>Protección de datos</h3>
-          <ul style={{ paddingLeft: "1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", color: "var(--text-secondary)" }}>
-            <li><strong style={{ color: "var(--text-primary)" }}>Almacenamiento:</strong> Encriptado en servidores Tier III</li>
-            <li><strong style={{ color: "var(--text-primary)" }}>Acceso:</strong> Solo equipo autorizado de la empresa</li>
-            <li><strong style={{ color: "var(--text-primary)" }}>Retención:</strong> 2 años máximo (después, eliminación)</li>
-            <li><strong style={{ color: "var(--text-primary)" }}>Derechos:</strong> Acceso, corrección, eliminación bajo solicitud</li>
-          </ul>
-        </div>
-
-        <div style={{ 
-          background: "rgba(212, 175, 55, 0.1)", 
-          border: "1px solid rgba(212, 175, 55, 0.3)",
-          padding: "1.5rem", 
-          borderRadius: "12px" 
-        }}>
-          <h4 style={{ fontWeight: 600, marginBottom: "0.75rem", color: "var(--gold)" }}>Derecho al olvido</h4>
-          <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem", lineHeight: 1.6 }}>
-            En cualquier momento puedes solicitar: acceso a tus datos, corrección si hay errores,
-            eliminación completa. Contacto: fllinaspisciotti@gmail.com
-          </p>
-        </div>
-      </div>
-    ),
-
-    garantias: (
-      <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-        <div>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", color: "var(--gold)" }}>¿Qué garantizamos?</h3>
-          <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.75rem", color: "var(--text-secondary)" }}>
-            <li>✓ <strong style={{ color: "var(--text-primary)" }}>Alineación MEN:</strong> Todos los documentos cumplirán DBA vigentes para el grado indicado</li>
-            <li>✓ <strong style={{ color: "var(--text-primary)" }}>Normativa:</strong> Cumplimiento Ley 115, Decreto 1290, Ley 1620, Ley 1098</li>
-            <li>✓ <strong style={{ color: "var(--text-primary)" }}>Profesionalismo:</strong> Estructura pedagógica estándar colombiana</li>
-            <li>✓ <strong style={{ color: "var(--text-primary)" }}>Sin plagio:</strong> Contenido original generado para ti</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", color: "var(--gold)" }}>¿Qué NO garantizamos?</h3>
-          <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem", color: "var(--text-secondary)" }}>
-            <li>✗ Resultados de aprendizaje (dependen de tu implementación)</li>
-            <li>✗ Aceptación por tu institución (depende de sus políticas internas)</li>
-            <li>✗ Que todos los estudiantes logren los objetivos</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", color: "var(--gold)" }}>Si algo falla</h3>
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            <div style={{ border: "1px solid var(--surface-border)", padding: "1rem", borderRadius: "8px" }}>
-              <h4 style={{ fontWeight: 600, color: "var(--text-primary)" }}>Caso 1: El documento NO corresponde al alcance acordado</h4>
-              <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem", marginTop: "0.5rem" }}>→ Revisión gratuita hasta 2 veces → Si persiste, reembolso 50%</p>
-            </div>
-            <div style={{ border: "1px solid var(--surface-border)", padding: "1rem", borderRadius: "8px" }}>
-              <h4 style={{ fontWeight: 600, color: "var(--text-primary)" }}>Caso 2: Plazo incumplido</h4>
-              <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem", marginTop: "0.5rem" }}>→ Reembolso 50% del valor → + $50.000 COP compensación</p>
-            </div>
-            <div style={{ border: "1px solid var(--surface-border)", padding: "1rem", borderRadius: "8px" }}>
-              <h4 style={{ fontWeight: 600, color: "var(--text-primary)" }}>Caso 3: Contenido con errores graves (plagio, mal redactado, contenido inapropiado)</h4>
-              <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem", marginTop: "0.5rem" }}>→ Reembolso 100% → + informe de lo qué salió mal</p>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", color: "var(--gold)" }}>Reembolsos</h3>
-          <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem", color: "var(--text-secondary)" }}>
-            <li>• Se procesan en 5-7 días hábiles</li>
-            <li>• Al mismo método de pago original</li>
-            <li>• Solicitud por email con evidencia</li>
-          </ul>
-        </div>
-      </div>
-    ),
-
-    preguntas: (
-      <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-        <div style={{ borderBottom: "1px solid var(--surface-border)", paddingBottom: "1.5rem" }}>
-          <p style={{ fontWeight: 600, color: "var(--gold)" }}>P: ¿Necesito firma digital para el mini-contrato?</p>
-          <p style={{ color: "var(--text-secondary)", marginTop: "0.75rem", lineHeight: 1.7 }}>
-            R: No. Aceptación por mensaje de WhatsApp (&quot;ACEPTO&quot;) tiene plena validez legal en Colombia
-            conforme a Ley 527 de 1999 (Comercio Electrónico).
-          </p>
-        </div>
-        <div style={{ borderBottom: "1px solid var(--surface-border)", paddingBottom: "1.5rem" }}>
-          <p style={{ fontWeight: 600, color: "var(--gold)" }}>P: ¿Puedo usar el documento que pago con otro colegio?</p>
-          <p style={{ color: "var(--text-secondary)", marginTop: "0.75rem", lineHeight: 1.7 }}>
-            R: No. Cada documento es personalizado para tu institución específica. Uso con otra institución
-            viola el acuerdo y puede resultar en acciones legales.
-          </p>
-        </div>
-        <div style={{ borderBottom: "1px solid var(--surface-border)", paddingBottom: "1.5rem" }}>
-          <p style={{ fontWeight: 600, color: "var(--gold)" }}>P: ¿Qué responsabilidad tienen si un estudiante lo usa para copiar?</p>
-          <p style={{ color: "var(--text-secondary)", marginTop: "0.75rem", lineHeight: 1.7 }}>
-            R: Cero. Es responsabilidad del docente y la institución implementar controles contra plagio
-            estudiantil (detección, pedagogía sobre integridad académica, evaluación oral, etc).
-          </p>
-        </div>
-        <div style={{ borderBottom: "1px solid var(--surface-border)", paddingBottom: "1.5rem" }}>
-          <p style={{ fontWeight: 600, color: "var(--gold)" }}>P: Si mi institución me cuestiona sobre usar IA, ¿cómo me defiendo?</p>
-          <p style={{ color: "var(--text-secondary)", marginTop: "0.75rem", lineHeight: 1.7 }}>
-            R: La IA es una herramienta pedagógica, como libros, videos o software educativo. El documento
-            que recibes es tuyo para usar con criterio profesional. No es diferente a comprar una guía de
-            un editorial. Recomendamos informar a dirección que se usa como herramienta de apoyo de docente,
-            no como suplente.
-          </p>
-        </div>
-        <div style={{ borderBottom: "1px solid var(--surface-border)", paddingBottom: "1.5rem" }}>
-          <p style={{ fontWeight: 600, color: "var(--gold)" }}>P: ¿Y si hay un conflicto con un padre/acudiente sobre esto?</p>
-          <p style={{ color: "var(--text-secondary)", marginTop: "0.75rem", lineHeight: 1.7 }}>
-            R: La institución es responsable de explicar su política sobre uso de herramientas educativas.
-            Nuestra empresa no interviene directamente. El documento está bajo tu profesionalismo pedagógico.
-          </p>
-        </div>
-        <div style={{ borderBottom: "1px solid var(--surface-border)", paddingBottom: "1.5rem" }}>
-          <p style={{ fontWeight: 600, color: "var(--gold)" }}>P: ¿Cómo sé que la IA no discrimina a estudiantes con necesidades especiales?</p>
-          <p style={{ color: "var(--text-secondary)", marginTop: "0.75rem", lineHeight: 1.7 }}>
-            R: Todas nuestras guías incluyen adecuaciones explícitas para inclusión. Si necesitas adaptaciones
-            más específicas (síndrome de Down, TEA, hipoacusia, etc), especifica en el brief y cobramos +$10k
-            por personalización de inclusión.
-          </p>
-        </div>
-        <div style={{ borderBottom: "1px solid var(--surface-border)", paddingBottom: "1.5rem" }}>
-          <p style={{ fontWeight: 600, color: "var(--gold)" }}>P: ¿Puedo usar documentos antiguos (del año pasado)?</p>
-          <p style={{ color: "var(--text-secondary)", marginTop: "0.75rem", lineHeight: 1.7 }}>
-            R: Sí, pero DBA cambian cada año. Recomendamos revisión anual. Si necesitas actualización,
-            es 30% del precio original.
-          </p>
-        </div>
-        <div>
-          <p style={{ fontWeight: 600, color: "var(--gold)" }}>P: ¿Y si cambia la normativa MEN?</p>
-          <p style={{ color: "var(--text-secondary)", marginTop: "0.75rem", lineHeight: 1.7 }}>
-            R: Nosotros mantenemos actualizados nuestros agentes. Si los DBA cambian después de tu compra,
-            ofreciendo ajuste gratuito en los primeros 3 meses.
-          </p>
-        </div>
-      </div>
-    ),
-  };
+  const [activeTab, setActiveTab] = useState<TabId>("terminos");
 
   return (
     <section className="section" style={{ paddingTop: "6rem" }}>
       <div className="container">
         <div style={{ textAlign: "center", marginBottom: "3rem", marginTop: "4rem" }}>
-          <h1 className="section-title">Legal y Seguridad</h1>
-          <p style={{ color: "var(--text-secondary)", marginTop: "0.5rem" }}>Términos, privacidad y garantías</p>
+          <h1 className="section-title">Legal y seguridad</h1>
+          <p style={{ color: "var(--text-secondary)", marginTop: "0.5rem" }}>Términos, privacidad y garantía</p>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.8rem", marginTop: "0.5rem" }}>Versión 0.1 · 16 de noviembre de 2026</p>
         </div>
 
-        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", marginBottom: "2rem", justifyContent: "center" }}>
+        <div role="tablist" style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", marginBottom: "2rem", justifyContent: "center" }}>
           {tabs.map((tab) => (
             <button
               key={tab.id}
+              role="tab"
+              aria-selected={activeTab === tab.id}
               onClick={() => setActiveTab(tab.id)}
               style={{
                 padding: "0.75rem 1.25rem",
@@ -257,9 +262,7 @@ export default function LegalPage() {
                 cursor: "pointer",
                 transition: "all 0.3s ease",
                 border: activeTab === tab.id ? "1px solid var(--gold)" : "1px solid transparent",
-                background: activeTab === tab.id 
-                  ? "linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)" 
-                  : "rgba(255,255,255,0.05)",
+                background: activeTab === tab.id ? "linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)" : "rgba(255,255,255,0.05)",
                 color: activeTab === tab.id ? "var(--green-deep)" : "var(--text-secondary)",
               }}
             >
@@ -268,47 +271,28 @@ export default function LegalPage() {
           ))}
         </div>
 
-        <div className="glass-panel" style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
-          {contenido[activeTab as keyof typeof contenido]}
+        <div className="glass-panel" role="tabpanel" style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
+          {contenido[activeTab]}
         </div>
 
-        <div style={{ 
-          marginTop: "2rem", 
-          background: "rgba(212, 175, 55, 0.1)", 
-          border: "1px solid rgba(212, 175, 55, 0.2)",
-          padding: "2rem", 
-          borderRadius: "16px", 
-          textAlign: "center",
-          maxWidth: "800px",
-          margin: "2rem auto 0"
-        }}>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "0.75rem", color: "var(--gold)" }}>Acepto estos términos</h3>
-          <p style={{ color: "var(--text-secondary)", marginBottom: "1rem" }}>
-            Al escribir &quot;ACEPTO&quot; por WhatsApp, confirmas que:
+        <div
+          style={{
+            marginTop: "2rem",
+            background: "rgba(212, 175, 55, 0.1)",
+            border: "1px solid rgba(212, 175, 55, 0.2)",
+            padding: "2rem",
+            borderRadius: "16px",
+            textAlign: "center",
+            maxWidth: "800px",
+            margin: "2rem auto 0",
+          }}
+        >
+          <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "0.75rem", color: "var(--gold)" }}>¿Dudas sobre estos términos?</h3>
+          <p style={{ color: "var(--text-secondary)", marginBottom: "1.5rem" }}>
+            Al hacer un pedido recibirás un resumen y confirmarás escribiendo “ACEPTO”. Si algo no te queda claro, pregúntanos antes.
           </p>
-          <ul style={{ 
-            textAlign: "left", 
-            color: "var(--text-secondary)", 
-            fontSize: "0.875rem", 
-            display: "flex", 
-            flexDirection: "column", 
-            gap: "0.5rem",
-            marginBottom: "1.5rem",
-            maxWidth: "400px",
-            margin: "0 auto 1.5rem"
-          }}>
-            <li>• Leíste y entiendes esta Política</li>
-            <li>• Aceptas términos y condiciones</li>
-            <li>• Autorizas el tratamiento de tus datos personales</li>
-            <li>• Eres responsable del contenido después de recibirlo</li>
-          </ul>
-          <a
-            href="https://wa.me/573046336897?text=Hola! Quiero conocer los términos y condiciones"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            💬 Contactar
+          <a href={waLink("Hola! Tengo una duda sobre los términos y condiciones.")} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            💬 Escribirnos
           </a>
         </div>
       </div>
